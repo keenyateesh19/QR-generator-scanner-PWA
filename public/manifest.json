@@ -1,0 +1,21 @@
+{
+    "name": "QRify | QR Generator and Scanner",
+    "short_name": "QRify",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#f2f4f7",
+    "theme_color": "#7f56d9",
+    "icons": [
+      {
+        "src": "/images/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/images/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  

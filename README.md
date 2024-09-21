@@ -18,3 +18,4 @@ To get started with QRify, follow these steps:
    git clone https://github.com/yourusername/qrify.git
    cd qrify
    ```
+

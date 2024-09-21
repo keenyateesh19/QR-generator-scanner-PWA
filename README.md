@@ -15,7 +15,19 @@ To get started with QRify, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/qrify.git
+   git clone https://github.com/keenyateesh19/qrify.git
    cd qrify
    ```
+2. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
+3. Start the development server:
+    ```bash
+    npm start
+    ```
+
+## Deployment
+
+QRify is deployed on Vercel. You can access the live application at [qrify.keenyateesh.com](https://qrify.keenyateesh.com).

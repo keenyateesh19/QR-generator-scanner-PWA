@@ -147,6 +147,10 @@ h6 {
   margin-bottom: 4rem;
 }
 
+.generate-tab__accordions {
+  flex: 1;
+}
+
 .generate-tab__accordion,.scan-tab__accordion {
   border: 1px solid var(--border-color);
   font-size: 1rem;
@@ -492,5 +496,9 @@ input[name="error-correction"]:checked + label {
 
   .tab__item:last-of-type {
     border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .generate-tab__accordions{
+    flex: unset;
   }
 }

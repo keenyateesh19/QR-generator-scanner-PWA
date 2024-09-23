@@ -58,9 +58,9 @@ document.getElementById("app").innerHTML = `
                         <input type="text" value="#000000" id="fg-color-value">
                         <span class="error-msg display">*Enter valid hex code</span>
                         </div>
-                        <label for="error-correction">
+                        <span>
                             Error Correction
-                        </label><br>
+                        </span><br>
                         <div class="btn-group">
                             <input type="radio" name="error-correction" value="L" id="low">
                             <label for="low" class="error-level">Low</label>
@@ -90,7 +90,7 @@ document.getElementById("app").innerHTML = `
         </div>
         <div class="modal-overlay">
             <div class="modal">
-            <input type="text" disabled class="qr-content">
+            <input type="text" disabled id="qr-content">
             <div class="button-group">
                 <button id="copy" class="primary-btn copy">Copy</button>
             <button id="close" class="primary-btn">Close</button>

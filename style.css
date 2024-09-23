@@ -490,6 +490,10 @@ input[name="error-correction"]:checked + label {
     align-items: center;
   }
 
+  .generate-tab {
+    max-width: 53.75rem;
+  }
+
   .tab__item:first-of-type {
     border-radius: 0.5rem 0 0 0.5rem;
   }
@@ -499,6 +503,6 @@ input[name="error-correction"]:checked + label {
   }
 
   .generate-tab__accordions{
-    flex: unset;
+    flex: 1;
   }
 }

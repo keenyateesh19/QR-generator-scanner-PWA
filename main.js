@@ -106,13 +106,13 @@ const generateTab = document.querySelector(".generate-tab");
 const scanTab = document.querySelector(".scan-tab");
 const videoStream = document.querySelector("#camera-stream");
 const scanner = new QrScanner(
-    videoStream,
-    (result) => {
-      scanner.stop();
-      showModal(result.data)
-    },
-    { returnDetailedScanResult: true }
-  );
+  videoStream,
+  (result) => {
+    scanner.stop();
+    showModal(result.data);
+  },
+  { returnDetailedScanResult: true }
+);
 
 tabs.forEach((tab) => {
   tab.addEventListener("change", (e) => {
@@ -124,8 +124,8 @@ tabs.forEach((tab) => {
       generateTab.style.display = "none";
       scanTab.style.display = "block";
       scanner.start().catch((er) => {
-        alert(er)
-      })
+        alert(er);
+      });
     }
   });
 });
@@ -144,14 +144,16 @@ accordionHeader.forEach((header) => {
 // Input Validation
 const error = document.querySelector(".text-field > span");
 const urlText = document.querySelector("#url");
-const showError = function(e, errorType = "*Cannot generate QR without content") {
-    error.textContent = errorType;
-    e.target.value === ""
+const showError = function (
+  e,
+  errorType = "*Cannot generate QR without content"
+) {
+  error.textContent = errorType;
+  e.target.value === ""
     ? error.classList.remove("display")
     : error.classList.add("display");
-}
+};
 urlText.addEventListener("input", showError);
-
 
 // Sync Color Input and Text Input
 const bgColor = document.querySelector("#bg-color");
@@ -193,24 +195,27 @@ fgColorValue.addEventListener("input", updateColor);
 const qrCanvas = document.querySelector("#qrcode");
 const generateBtn = document.querySelector('label[for="url"] + .primary-btn');
 
-const maxError = function(errorContent) {
-    if(errorContent === null){
-        error.textContent = errorContent.message;
-        error.classList.remove('display');
-    }
-    
-}
+const maxError = function (errorContent) {
+  if (errorContent === null) {
+    error.textContent = errorContent.message;
+    error.classList.remove("display");
+  }
+};
 
 const generateQR = () => {
-  QRcode.toCanvas(qrCanvas, urlText.value, {
-    height: 312,
-    width: 312,
-    errorCorrectionLevel: document.querySelectorAll(
-      'input[name="error-correction"]:checked'
-    ),
-    color: { light: bgColorValue.value, dark: fgColorValue.value },
-    
-  }, maxError);
+  QRcode.toCanvas(
+    qrCanvas,
+    urlText.value,
+    {
+      height: 312,
+      width: 312,
+      errorCorrectionLevel: document.querySelectorAll(
+        'input[name="error-correction"]:checked'
+      ),
+      color: { light: bgColorValue.value, dark: fgColorValue.value },
+    },
+    maxError
+  );
   downloadQR();
 };
 
@@ -249,25 +254,25 @@ async function downloadQR() {
 
 generateQR();
 
-const qrContent = document.querySelector('.qr-content');
-const modal = document.querySelector('.modal-overlay');
+const qrContent = document.querySelector(".qr-content");
+const modal = document.querySelector(".modal-overlay");
 
 const showModal = (qrResult) => {
-    qrContent.value = qrResult;
-    modal.style.display = 'flex';
-}
+  qrContent.value = qrResult;
+  modal.style.display = "flex";
+};
 
-const copyBtn = document.querySelector('#copy');
-copyBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    qrContent.select();
-    qrContent.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(qrContent.value);
-    copyBtn.textContent = 'Copied!'
-})
+const copyBtn = document.querySelector("#copy");
+copyBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  qrContent.select();
+  qrContent.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(qrContent.value);
+  copyBtn.textContent = "Copied!";
+});
 
-const closeBtn = document.querySelector('#close');
-closeBtn.addEventListener('click', (e) => {
-    modal.style.display = 'none';
-    scanner.start()
-})
+const closeBtn = document.querySelector("#close");
+closeBtn.addEventListener("click", (e) => {
+  modal.style.display = "none";
+  scanner.start();
+});
